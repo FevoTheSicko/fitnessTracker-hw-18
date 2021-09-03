@@ -35,7 +35,10 @@ router.put('/:id', (req, res) => {
             name: req.body.name,
             weight: req.body.weight,
             sets: req.body.sets,
-            reps: req.body.duration
+            reps: req.body.duration,
+            duration: req.body.duration,
+            distance: req.body.distance
+
         })
         .then(({ _id }) => db.Workout.findOneAndUpdate({ _id: req.params.id }, { $push: { exercise: _id } }, { new: true }))
         //db.Workout.findOneAndUpdate({ _id: req.params.id }, { $push: { exercise: req.body._id } }, { new: true }))
